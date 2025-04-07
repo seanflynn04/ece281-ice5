@@ -130,13 +130,16 @@ begin
 	-- PROCESSES ------------------------------------------------------------------------------------------	
 	
 	-- State register ------------
-	
+	register_proc : process (i_clk)
+begin
+     if (rising_edge(i_clk) and i_reset = '0')then
+        f_Q <= f_Q_next;   
+     elsif (rising_edge(i_clk) and i_reset = '1')then
+        f_Q <= s_floor2;        
+     end if;    
+end process register_proc;
 	
 	-------------------------------------------------------------------------------------------------------
 	
-	
-
-
-
 end Behavioral;
 
